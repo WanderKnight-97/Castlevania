@@ -1,12 +1,9 @@
 package sprites;
 
 import flixel.FlxSprite;
+import flixel.FlxG;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
-/**
- * ...
- * @author ...
- */
 class EnemyBase extends FlxSprite
 {
 
@@ -15,5 +12,10 @@ class EnemyBase extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		
 	}
+	override public function update(elapsed:Float):Void
+	{
+		move();
+	}
+	public function move(){}
 	
 }

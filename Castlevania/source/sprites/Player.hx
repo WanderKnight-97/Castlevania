@@ -3,6 +3,7 @@ package sprites;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.FlxG;
+import flixel.FlxObject;
 
 /**
  * ...
@@ -17,14 +18,23 @@ class Player extends FlxSprite
 	{
 		super(X, Y, SimpleGraphic);
 		makeGraphic(16, 32);
+		
+		acceleration.y = Reg.accelY;
 	}
 	override public function update(elapsed:Float):Void
 	{
-		super.update(elapsed);
+		velocity.x = 0;
+		Reg.posX = x + width / 2;
+		Reg.posY = y + height / 2;
+		Reg.widthP = width;
+		Reg.heightP = height;
+		
 		if (FlxG.keys.pressed.RIGHT)
-			this.x += 100 * FlxG.elapsed;
+			velocity.x += Reg.speed;
 		if (FlxG.keys.pressed.LEFT)
-			this.x -= 100 * FlxG.elapsed;
+			velocity.x -= Reg.speed;
+		if (FlxG.keys.justPressed.SPACE && isTouching(FlxObject.FLOOR))
+			velocity.y = Reg.jump;
 		super.update(elapsed);
 	}
 }
