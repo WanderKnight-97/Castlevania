@@ -3,7 +3,8 @@ package;
 import flixel.FlxGame;
 import openfl.Lib;
 import openfl.display.Sprite;
-import source.states.PlayState;
+import states.PlayState;
+import states.MenuState;
 
 class Main extends Sprite
 {

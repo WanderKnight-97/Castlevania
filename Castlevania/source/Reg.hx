@@ -1,6 +1,9 @@
 package;
 
 import sprites.Player;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import states.PlayState;
 class Reg
 {
 	static inline public var speed:Float = 150;
@@ -10,6 +13,5 @@ class Reg
 	static public var posY:Float;
 	static public var widthP:Float;
 	static public var heightP:Float;
-	
-	
+	static public var m:Bool = true;
 }

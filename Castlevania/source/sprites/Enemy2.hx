@@ -1,5 +1,7 @@
 package sprites;
-
+import flixel.FlxSprite;
+import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 /**
@@ -17,14 +19,20 @@ class Enemy2 extends EnemyBase
 	}
 	override public function move()
 	{
-		super.move(); //not work. replantear logica.
-		if (y + height / 2 > Reg.posY && y < Reg.posY + Reg.heightP)
+		velocity.x = 0;
+		/*if ((y + height / 2 > Reg.posY) && (y < Reg.posY + Reg.heightP))
 			velocity.x += 200;
 		/*else if (y + height / 2 > Reg.posY && y < Reg.posY + Reg.heightP)
-			velocity.x -= 200;*/
+			velocity.x -= 200;
 		else if (y > Reg.posY)
 			y--;
 		else if (y < Reg.posY)
-			y++;
+			y++;*/
+		if (isTouching(FlxObject.FLOOR) && x > Reg.posX)
+			velocity.x -= 200;
+		else if (isTouching(FlxObject.FLOOR) && x < Reg.posX)
+			velocity.x += 200;
+			
+		super.move(); 
 	}
 }

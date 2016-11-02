@@ -19,7 +19,8 @@ class Enemy1 extends EnemyBase
 	}
 	override public function move()
 	{
-		super.move();
+		velocity.x = 0;
+		
 		if (et == 1)
 		{
 			x++;
@@ -37,5 +38,6 @@ class Enemy1 extends EnemyBase
 			et++;
 			movi = 0;
 		}
-	}
+		super.move();
+	} 
 }

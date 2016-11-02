@@ -29,9 +29,9 @@ class Player extends FlxSprite
 		Reg.widthP = width;
 		Reg.heightP = height;
 		
-		if (FlxG.keys.pressed.RIGHT)
+		if (FlxG.keys.pressed.RIGHT && Reg.m == true)
 			velocity.x += Reg.speed;
-		if (FlxG.keys.pressed.LEFT)
+		if (FlxG.keys.pressed.LEFT && Reg.m == true)
 			velocity.x -= Reg.speed;
 		if (FlxG.keys.justPressed.SPACE && isTouching(FlxObject.FLOOR))
 			velocity.y = Reg.jump;
